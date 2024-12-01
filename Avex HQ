@@ -1,0 +1,181 @@
+-- Load Orion library (make sure to include Orion in your game)
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+
+-- Create a new window with a Blue Ocean theme
+local Window = OrionLib:MakeWindow({
+    Name = "🌊 Avex HQ 🌊", -- Window name with emojis
+    HidePremium = false,
+    IntroEnabled = true,
+    IntroText = "Welcome to Avex HQ! 🌊 Dive in!", -- Cool intro text
+    SaveConfig = true, -- Saves user settings
+    ConfigFolder = "AvexHQ",
+    Theme = {
+        Main = Color3.fromRGB(0, 102, 204), -- Ocean blue
+        Accent = Color3.fromRGB(0, 204, 255), -- Vibrant cyan
+        Outline = Color3.fromRGB(0, 51, 102), -- Deep blue outline
+        FontColor = Color3.fromRGB(255, 255, 255) -- White text
+    },
+    KeySystem = false, -- Enables the key system
+    Key = "AvexHQRX144", -- Your custom key
+})
+
+-- Hit Box Tab
+local HitBoxSection = Window:MakeTab({
+    Name = "🎯 Hit Box", -- Section name with emoji
+    Icon = "rbxassetid://1234567890", -- Replace with an actual icon ID
+    PremiumOnly = false -- Accessible to all users
+})
+
+-- Add a button to execute Hit Box Enhancer script
+HitBoxSection:AddButton({
+    Name = "🔥 Activate HBE 🔥", -- Button name with emoji
+    Callback = function()
+        -- Executes the provided script from Pastebin
+        loadstring(game:HttpGet("https://pastebin.com/raw/0vYAmhTx"))()
+    end
+})
+
+-- Utilities Tab
+local UtilitiesTab = Window:MakeTab({
+    Name = "🛠️ Utilities", -- Tab name with emoji
+    Icon = "rbxassetid://9876543210", -- Replace with an actual icon ID
+    PremiumOnly = false
+})
+
+-- Utilities Tab Scripts
+UtilitiesTab:AddButton({
+    Name = "✨ Infinite Yield Admin ✨",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end
+})
+
+UtilitiesTab:AddButton({
+    Name = "📂 Dex Explorer",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
+    end
+})
+
+UtilitiesTab:AddButton({
+    Name = "🏃‍♂️ Speed Boost",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+            player.Character.Humanoid.WalkSpeed = 100 -- Speed boost
+            OrionLib:MakeNotification({
+                Name = "Speed Boost Activated",
+                Content = "Your walking speed is now 100! 🏎️",
+                Image = "rbxassetid://1234567890", -- Replace with a relevant icon
+                Time = 5
+            })
+        end
+    end
+})
+
+UtilitiesTab:AddButton({
+    Name = "🔄 Reset Speed",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+            player.Character.Humanoid.WalkSpeed = 16 -- Reset speed
+            OrionLib:MakeNotification({
+                Name = "Speed Reset",
+                Content = "Your walking speed is back to normal. 🐢",
+                Image = "rbxassetid://1234567890", -- Replace with a relevant icon
+                Time = 5
+            })
+        end
+    end
+})
+
+UtilitiesTab:AddButton({
+    Name = "🎉 Random Emoji",
+    Callback = function()
+        local emojis = {"😎", "🎃", "🌈", "💥", "🔥", "🌟", "💎", "🎮"}
+        local randomEmoji = emojis[math.random(1, #emojis)]
+        OrionLib:MakeNotification({
+            Name = "Random Emoji",
+            Content = "Here’s your random emoji: " .. randomEmoji,
+            Image = "rbxassetid://1234567890", -- Replace with a fun icon
+            Time = 5
+        })
+    end
+})
+
+-- Fun Tab
+local FunTab = Window:MakeTab({
+    Name = "🎮 Fun", -- Tab name with emoji
+    Icon = "rbxassetid://1234567890", -- Replace with an actual icon ID
+    PremiumOnly = false -- Accessible to all users
+})
+
+-- Fun Tab Scripts
+FunTab:AddButton({
+    Name = "🌌 Low Gravity",
+    Callback = function()
+        workspace.Gravity = 10 -- Set gravity lower for a floating experience
+        OrionLib:MakeNotification({
+            Name = "Low Gravity Activated",
+            Content = "You can now jump like you're on the moon! 🌕",
+            Image = "rbxassetid://1234567890",
+            Time = 5
+        })
+    end
+})
+
+FunTab:AddButton({
+    Name = "🎢 Fling Everyone",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+            if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                player.Character.HumanoidRootPart.Velocity = Vector3.new(100, 100, 100)
+            end
+        end
+    end
+})
+
+FunTab:AddButton({
+    Name = "🌈 Rainbow Character",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        while true do
+            for _, part in pairs(player.Character:GetChildren()) do
+                if part:IsA("BasePart") then
+                    part.Color = Color3.new(math.random(), math.random(), math.random())
+                end
+            end
+            wait(0.1)
+        end
+    end
+})
+
+FunTab:AddButton({
+    Name = "🚪 No Clip",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        game:GetService("RunService").Stepped:Connect(function()
+            if player.Character then
+                for _, part in pairs(player.Character:GetChildren()) do
+                    if part:IsA("BasePart") then
+                        part.CanCollide = false
+                    end
+                end
+            end
+        end)
+    end
+})
+
+FunTab:AddButton({
+    Name = "💣 Explode Yourself",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local explosion = Instance.new("Explosion")
+        explosion.Position = player.Character.HumanoidRootPart.Position
+        explosion.BlastRadius = 10
+        explosion.Parent = workspace
+    end
+})
+
+-- Initialize GUI
+OrionLib:Init()
