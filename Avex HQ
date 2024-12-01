@@ -42,7 +42,16 @@ local UtilitiesTab = Window:MakeTab({
     PremiumOnly = false
 })
 
--- Utilities Tab Scripts
+-- Add the new button for the BetterBypasser loader
+UtilitiesTab:AddButton({
+    Name = "🔒 Better Bypasser", -- Button name with emoji
+    Callback = function()
+        -- Executes the BetterBypasser loader script
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua"))()
+    end
+})
+
+-- Existing Utilities Tab Scripts
 UtilitiesTab:AddButton({
     Name = "✨ Infinite Yield Admin ✨",
     Callback = function()
@@ -174,6 +183,40 @@ FunTab:AddButton({
         explosion.Position = player.Character.HumanoidRootPart.Position
         explosion.BlastRadius = 10
         explosion.Parent = workspace
+    end
+})
+
+-- Games Scripts Tab
+local GamesScriptsTab = Window:MakeTab({
+    Name = "🎮 Games Scripts", -- Tab name with emoji
+    Icon = "rbxassetid://1234567890", -- Replace with an actual icon ID
+    PremiumOnly = false -- Accessible to all users
+})
+
+-- Add Blox Fruits script button
+GamesScriptsTab:AddButton({
+    Name = "🍊 Blox Fruits Script", -- Button name with emoji
+    Callback = function()
+        -- Replace with the actual script URL for Blox Fruits
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript"))()
+    end
+})
+
+-- Add Fisch script button
+GamesScriptsTab:AddButton({
+    Name = "🎮 Fisch Script", -- Button name with emoji
+    Callback = function()
+        -- Replace with the actual script URL for Fisch
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+    end
+})
+
+-- Add Brookhaven script button
+GamesScriptsTab:AddButton({
+    Name = "🏠 Brookhaven Script", -- Button name with emoji
+    Callback = function()
+        -- Replace with the actual script URL for Brookhaven
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven"))()
     end
 })
 
