@@ -1,0 +1,30 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Target position to teleport to
+local targetPosition = Vector3.new(
+    -13.934791564941406, 4.010006904602051, -179.90557861328125
+)
+
+-- Function to teleport
+local function teleportTo(position)
+    if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        LocalPlayer.Character:PivotTo(CFrame.new(position))
+        print("Teleported to:", position)
+    else
+        warn("Unable to teleport. Character or HumanoidRootPart not found.")
+    end
+end
+
+-- Loop that runs every 0.45 seconds
+while true do
+    -- Check if player has the "HasBall" attribute set to true
+    if LocalPlayer:GetAttribute("HasBall") == true then
+        teleportTo(targetPosition)
+    else
+        print("Player does not have the ball.")
+    end
+    
+    -- Wait 0.45 seconds before checking again
+    task.wait(0.45)
+end
