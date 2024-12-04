@@ -35,6 +35,23 @@ HitBoxSection:AddButton({
     end
 })
 
+-- Add the "Auto Goal" button
+HitBoxSection:AddButton({
+    Name = "🎯 Auto Goal", -- Button name with emoji
+    Callback = function()
+        -- Show instructions first
+        OrionLib:MakeNotification({
+            Name = "Auto Goal Instructions",
+            Content = "Must be in home team to work.\n\nIf you get the ball, it will teleport you and you must press shoot.",
+            Image = "rbxassetid://1234567890", -- Replace with a relevant icon
+            Time = 20
+        })
+
+        -- Executes the Avex-Script's Auto Goal functionality
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/AvexRxT/Avex-Script/main/AFS'))()
+    end
+})
+
 -- Utilities Tab
 local UtilitiesTab = Window:MakeTab({
     Name = "🛠️ Utilities", -- Tab name with emoji
