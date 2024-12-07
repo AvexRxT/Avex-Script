@@ -65,6 +65,23 @@ HitBoxSection:AddButton({
         loadstring(game:HttpGet('https://raw.githubusercontent.com/AvexRxT/Avex-Script/main/AFS'))()
     end
 })
+-- New button for Splasma script
+HitBoxSection:AddButton({
+    Name = "⚡ Splasma Script ⚡", -- Button name with emoji
+    Callback = function()
+        -- Executes the Splasma script
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SigmaSploiter1/Plasma-Scripts/refs/heads/main/SLS.txt"))()
+    end
+})
+
+-- New button for Linkvertise script
+HitBoxSection:AddButton({
+    Name = "🔗 BEST SLS SCRIPT 🔗", -- Button name with emoji
+    Callback = function()
+        -- Executes the Linkvertise script
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fx2024ondiscord/test/refs/heads/main/linkvertise-script-api.1.0.8/linkvertise-script-api/templates/admin.lua"))()
+    end
+})
 
 -- Utilities Tab
 local UtilitiesTab = Window:MakeTab({
