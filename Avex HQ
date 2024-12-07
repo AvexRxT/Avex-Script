@@ -26,6 +26,20 @@ local HitBoxSection = Window:MakeTab({
     PremiumOnly = false -- Accessible to all users
 })
 
+HitBoxSection:AddButton({
+    Name = "📢 Join Discord Server", -- Button name with emoji
+    Callback = function()
+        -- Opens the Discord invite link in the user's browser
+        setclipboard("https://discord.gg/eh4qhUthcE") -- Copies the link to clipboard
+        OrionLib:MakeNotification({
+            Name = "Discord Invite",
+            Content = "Discord link copied to clipboard! Open your browser to join: https://discord.gg/eh4qhUthcE",
+            Image = "rbxassetid://1234567890", -- Replace with a relevant icon
+            Time = 10
+        })
+    end
+})
+
 -- Add a button to execute Hit Box Enhancer script
 HitBoxSection:AddButton({
     Name = "🔥 Activate HBE 🔥", -- Button name with emoji
