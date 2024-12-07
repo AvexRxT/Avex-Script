@@ -15,7 +15,7 @@ local Window = OrionLib:MakeWindow({
         Outline = Color3.fromRGB(0, 51, 102), -- Deep blue outline
         FontColor = Color3.fromRGB(255, 255, 255) -- White text
     },
-    KeySystem = false, -- Enables the key system
+    KeySystem = true, -- Enables the key system
     Key = "AvexHQRX144", -- Your custom key
 })
 
